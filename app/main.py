@@ -9,7 +9,7 @@ frontendUrl = os.getenv("FRONTEND_URL", "*")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[frontendUrl],  # use your domain in production
+    allow_origins=['*'],  # use your domain in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,3 +35,4 @@ def achivements():
 @app.get("/achivements")
 def get_achivements(): 
     return achivements()
+
