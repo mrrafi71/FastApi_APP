@@ -5,11 +5,11 @@ import json
 
 app = FastAPI()
 
-frontendUrl = os.getenv("FRONTEND_URL", "*")
+frontendUrl = os.getenv("FRONTEND_URL", "http://localhost:5173/")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],  # use your domain in production
+    allow_origins=[frontendUrl],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -35,4 +35,5 @@ def achivements():
 @app.get("/achivements")
 def get_achivements(): 
     return achivements()
+
 
